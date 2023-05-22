@@ -1,0 +1,9 @@
+.navA{
+    font-size: 1.3rem;
+    color: #FFD523;
+}
+.active{
+
+    border-bottom: 3px solid #FFD523 ;
+    padding-bottom: 4px;
+}
