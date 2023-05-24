@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import styled from "styled-components";
+import {InputTime, LabelTime,ButtonTime} from './../elements/Label'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPause, faPlay, faArrowRotateRight } from '@fortawesome/free-solid-svg-icons'
 
 const Time =()=> {
   const [elapsedTime, setElapsedTime] = useState(0);
@@ -40,38 +43,72 @@ const Time =()=> {
   return (
     <ContainerTime>
       <ContainerForm onSubmit={handleSubmit}>
-        <LabelTitle>
+        <LabelTime>
           Horas:
-          <input type="number" value={hours} onChange={(e) => setHours(parseInt(e.target.value, 10))} />
-        </LabelTitle>
-        <label>
+          <InputTime type="number" value={hours} onChange={(e) => setHours(parseInt(e.target.value, 10))} />
+        </LabelTime>
+        <LabelTime>
           Minutos:
-          <input type="number" value={minutes} onChange={(e) => setMinutes(parseInt(e.target.value, 10))} />
-        </label>
-        <label>
+          <InputTime type="number" value={minutes} onChange={(e) => setMinutes(parseInt(e.target.value, 10))} />
+        </LabelTime>
+        <LabelTime>
           Segundos:
-          <input type="number" value={seconds} onChange={(e) => setSeconds(parseInt(e.target.value, 10))} />
-        </label>
-        <button type="submit">Iniciar</button>
+          <InputTime type="number" value={seconds} onChange={(e) => setSeconds(parseInt(e.target.value, 10))} />
+        </LabelTime>
+        <ContainerButtons>
+          <ButtonTime1 type="submit"><FontAwesomeIcon icon={faPlay}  /></ButtonTime1>
+          <ButtonTime2 widthB type="submit"><FontAwesomeIcon icon={faPause}  /></ButtonTime2>
+          <ButtonTime3 widthB type="submit"><FontAwesomeIcon icon={faArrowRotateRight}  /></ButtonTime3>
+        </ContainerButtons>    
+        
       </ContainerForm>
-      {elapsedTime > 0 && <div>Tiempo restante: {formatTime(elapsedTime)}</div>}
+      {elapsedTime > 0 && <ContainerClock>Tiempo restante: {formatTime(elapsedTime)}</ContainerClock>}
     </ContainerTime>
   );
 }
 const ContainerTime=styled.div`
     display: flex;
     height:80vh;
-
     align-items:center;
     justify-content:center;
     
 `
 const ContainerForm=styled.form`
+    flex:1 1 50%;
     display:flex;
     flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    
 `
-const LabelTitle=styled.label`
-    margin-right:10px;
+const ContainerClock=styled.div`
+    flex:1 1 50%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+ 
 `
+const ContainerButtons=styled.div`
+  display:flex;
+  flex-direction:row;
+  width:300px;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+`
+const ButtonTime1=styled.button`
+  flex:100%;
+  margin-top:10px;
+  margin-bottom:10px;
+`
+const ButtonTime2=styled.button`
+  flex:1 1 40%;
+`
+const ButtonTime3=styled.button`
+  flex:1 1 40%;
+  margin-left:5px;
+`
+
 
 export default Time;

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+import { faClock, faHouse } from '@fortawesome/free-solid-svg-icons'
 import './../elements/HeaderStyles.css'
 
 const Header=()=>{
@@ -10,8 +10,8 @@ const Header=()=>{
           <TitleHeader>Title Lorem isep</TitleHeader>
           
           <ContainerNav>
-            <NavLink to='/'><FontAwesomeIcon icon={faClock } className="navA"/></NavLink>
-            <NavLink to='/time'><FontAwesomeIcon icon={faPenToSquare} className="navA" /></NavLink>
+            <NavLink to='/'><FontAwesomeIcon icon={faHouse } className="navA"/></NavLink>
+            <NavLink to='/time'><FontAwesomeIcon icon={faClock} className="navA" /></NavLink>
             
           </ContainerNav>
         </ContainerHeader>
